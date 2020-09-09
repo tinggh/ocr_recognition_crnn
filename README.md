@@ -13,5 +13,9 @@ CPU: AMD Ryzen 7 3700X 8-Core Processor, 16G
 |--------------	|------------	|------------	|------------   |
 | DefaultCNN_512| 10            | 99.4%         |  45.5M        |
 | ResNet18_512  | 10            | 99.3%         |  68.0M        |
-| DenseNet_128  | 4             | 96.64%        |  21.0M        |
+| DenseNet_128  | 24            | 99.01%        |  21.0M        |
 | DenseNet18_256| 4             | 98.18%        |  27.0M        |
+
+## models
+[the models trained in baidudisk](https://pan.baidu.com/s/1DCgfjmABsBRqhKMXr-MlTg) 
+ passwd: ub4j
