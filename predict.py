@@ -1,19 +1,23 @@
+from types import new_class
 import torch
 import torchvision.transforms as transforms
 
 from PIL import Image
 from torch.autograd import Variable
 
-import keys
+import data_dict
 import utils
 from models import crnn
 
-from config import config
+CNN = "DenseNet18_256"
+RNN = "DoubleBiLSTM"
+n_in = 256
+n_hidden = 256
+alphabet = data_dict.alphabet
 
-
-alphabet = keys.alphabet
 nClass = len(alphabet) + 1
-
+n_layer = 1
+dp = 0
 
 class Crnn_model:
     def __init__(self, model_path, gpu_id=None):
@@ -31,8 +35,9 @@ class Crnn_model:
             checkpoint = torch.load(model_path, map_location='cpu')
             self.device = torch.device("cpu")
         print('text recognition running on device:', self.device)
+        
 
-        self.net = crnn.CRNN(config, nClass)
+        self.net = crnn.CRNN(CNN=CNN, RNN=RNN,  nIn=n_in, n_class=new_class, nHidden=n_hidden, nLayer=n_layer, dropout=dp)
         self.net.load_state_dict(checkpoint['state_dict'])
         self.net.to(self.device)
         self.net.eval()

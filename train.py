@@ -12,7 +12,7 @@ import torch.optim as optim
 from torch.autograd import Variable
 
 import dataset
-import keys, data_dict
+import data_dict
 import utils
 from models import crnn
 
